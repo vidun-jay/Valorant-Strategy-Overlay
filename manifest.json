@@ -1,0 +1,56 @@
+{
+  "manifest_version": 1,
+  "type": "WebApp",
+  "meta": {
+    "name": "Valorant Strategy Overlay",
+    "author": "Outplayed",
+    "version": "1.0.0",
+    "minimum-overwolf-version": "0.200.0",
+    "description": "Live economy-based strategy advice overlay for Valorant",
+    "icon": "icons/IconMouseOver.png",
+    "icon_gray": "icons/IconMouseNormal.png"
+  },
+  "permissions": ["GameInfo"],
+  "data": {
+    "start_window": "background",
+    "game_targeting": {
+      "type": "dedicated",
+      "game_ids": [21640]
+    },
+    "game_events": [21640],
+    "launch_events": [
+      {
+        "event": "GameLaunch",
+        "event_data": {
+          "game_ids": [21640]
+        },
+        "start_minimized": false
+      }
+    ],
+    "windows": {
+      "background": {
+        "file": "windows/background/background.html",
+        "is_background_page": true
+      },
+      "overlay": {
+        "file": "windows/overlay/overlay.html",
+        "transparent": true,
+        "clickthrough": true,
+        "topmost": true,
+        "resizable": false,
+        "show_in_taskbar": false,
+        "override_on_update": true,
+        "size": {
+          "width": 1920,
+          "height": 1080
+        },
+        "start_position": {
+          "top": 0,
+          "left": 0
+        },
+        "focus_game_takeover": "ReleaseOnLostFocus",
+        "focus_game_takeover_release_hotkey": "overlay"
+      }
+    }
+  }
+}
